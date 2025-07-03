@@ -1,12 +1,12 @@
 package com.simplebuy.simplebuy_back.domain.product;
 
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.simplebuy.simplebuy_back.domain.cart.Cart;
 import com.simplebuy.simplebuy_back.domain.order.Order;
 import com.simplebuy.simplebuy_back.domain.user.User;
 
@@ -27,7 +27,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "products")
+@Table(name = "product")
 @Getter @Setter @NoArgsConstructor @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
 public class Product {
@@ -39,7 +39,7 @@ public class Product {
     private String name;
 
     @Column(nullable = false)
-    private BigDecimal price;
+    private Integer price;
 
     @Column(nullable = false)
     private String description;
@@ -57,7 +57,7 @@ public class Product {
 
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @ManyToMany(mappedBy = "cartProducts", fetch = FetchType.LAZY)
-    private Set<Order> carts = new HashSet<Order>();
+    private Set<Cart> carts = new HashSet<Cart>();
 
     @Column(name = "created_at", nullable = false)
     private LocalDateTime creationTime;
