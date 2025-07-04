@@ -1,6 +1,6 @@
 package com.simplebuy.simplebuy_back.domain.cart;
 
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -46,5 +46,5 @@ public class Cart {
 
     @UpdateTimestamp
     @Column(nullable = false, name = "updated_at")
-    private LocalDateTime updateTime;
+    private OffsetDateTime updateTime;
 }

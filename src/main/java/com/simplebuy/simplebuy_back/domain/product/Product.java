@@ -1,6 +1,6 @@
 package com.simplebuy.simplebuy_back.domain.product;
 
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
@@ -63,5 +63,5 @@ public class Product {
 
     @CreationTimestamp
     @Column(name = "created_at", nullable = false, updatable = false)
-    private LocalDateTime creationTime;
+    private OffsetDateTime creationTime;
 }
