@@ -1,8 +1,12 @@
 package com.simplebuy.simplebuy_back.domain.order;
 
+import java.time.OffsetDateTime;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import com.simplebuy.simplebuy_back.domain.user.User;
 import com.simplebuy.simplebuy_back.domain.product.Product;
@@ -46,4 +50,12 @@ public class Order {
 
     @Column(nullable = false)
     private OrderStatusType status;
+
+    @CreationTimestamp
+    @Column(name = "created_at", nullable = false, updatable = false)
+    private OffsetDateTime creationTime;
+
+    @UpdateTimestamp
+    @Column(nullable = false, name = "updated_at")
+    private OffsetDateTime updateTime;
 }
