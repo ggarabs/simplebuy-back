@@ -5,6 +5,8 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.simplebuy.simplebuy_back.domain.cart.Cart;
 import com.simplebuy.simplebuy_back.domain.order.Order;
@@ -55,6 +57,7 @@ public class User {
     @JoinColumn(name = "cart_id", nullable = false, unique = true)
     private Cart cart;
 
-    @Column(name = "created_at", nullable = false)
+    @CreationTimestamp
+    @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime creationTime;
 }

@@ -5,6 +5,8 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.simplebuy.simplebuy_back.domain.cart.Cart;
 import com.simplebuy.simplebuy_back.domain.order.Order;
@@ -59,6 +61,7 @@ public class Product {
     @ManyToMany(mappedBy = "cartProducts", fetch = FetchType.LAZY)
     private Set<Cart> carts = new HashSet<Cart>();
 
-    @Column(name = "created_at", nullable = false)
+    @CreationTimestamp
+    @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime creationTime;
 }

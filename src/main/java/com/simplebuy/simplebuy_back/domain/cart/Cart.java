@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+import org.hibernate.annotations.UpdateTimestamp;
+
 import com.simplebuy.simplebuy_back.domain.product.Product;
 import com.simplebuy.simplebuy_back.domain.user.User;
 
@@ -42,6 +44,7 @@ public class Cart {
     @OneToOne(mappedBy = "cart")
     private User user;
 
+    @UpdateTimestamp
     @Column(nullable = false, name = "updated_at")
     private LocalDateTime updateTime;
 }
