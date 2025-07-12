@@ -43,14 +43,13 @@ public class Product {
     @Column(nullable = false)
     private Long price;
 
-    @Column(nullable = false)
     private String description;
 
     @Column(nullable = false)
     private Long stock_quantity;
 
     @ManyToOne
-    @JoinColumn(name = "seller_id", nullable = false)
+    @JoinColumn(name = "seller_id"/*, nullable = false*/)
     private User seller;
 
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
