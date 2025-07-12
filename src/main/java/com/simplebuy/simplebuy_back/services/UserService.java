@@ -1,5 +1,7 @@
 package com.simplebuy.simplebuy_back.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +20,10 @@ public class UserService {
 
     @Autowired
     CartService cartService;
+
+    public List<User> getAllUsers(){
+        return repository.findAll();
+    }
     
     @Transactional
     public User createUser(UserDTO user){
