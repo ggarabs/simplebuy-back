@@ -1,6 +1,6 @@
 package com.simplebuy.simplebuy_back.infra;
 
-import org.springframework.http.HttpStatus;
+import java.time.LocalDateTime;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -10,6 +10,7 @@ import lombok.Setter;
 @Getter @Setter
 @AllArgsConstructor @NoArgsConstructor
 public class ErrorMessage {
-    private HttpStatus status;
+    private int status;
     private String message;
+    private LocalDateTime timestamp;
 }
